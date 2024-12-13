@@ -1,0 +1,148 @@
+{% load static %}
+<html>
+  <head>
+    <title>Rumah Sakit Sehat Sejahtera</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #fff;
+        color: #333;
+      }
+      .header {
+        display: flex;
+        align-items: center;
+        padding: 20px;
+      }
+      .header img {
+        width: auto;
+        height: auto;
+        margin-right: 20px;
+      }
+      .nav {
+        display: flex;
+        justify-content: center;
+        background-color: #6b9e1f;
+      }
+      .nav a {
+        color: white;
+        padding: 14px 20px;
+        text-decoration: none;
+        text-align: center;
+        font-weight: bold;
+      }
+      .nav a:hover {
+        background-color: #5a871a;
+      }
+      .content {
+        padding: 20px;
+      }
+      .content h2 {
+        text-align: center;
+        font-size: 20px;
+      }
+      .content h3 {
+        color: #6b9e1f;
+        font-size: 18px;
+      }
+      .content p {
+        font-size: 16px;
+        line-height: 1.5;
+      }
+      .content ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      .content ul li {
+        margin: 5px 0;
+      }
+      .content ul li::before {
+        content: "○";
+        color: #6b9e1f;
+        display: inline-block;
+        width: 1em;
+        margin-left: -1em;
+      }
+      table.rooms {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  table.rooms th, table.rooms td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+  }
+  table.rooms th {
+    background-color: #f2f2f2;
+  }
+  table.rooms tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  table.rooms tr:hover {
+    background-color: #f1f1f1;
+  }
+
+  /* Grid system untuk 3 kolom */
+  .room-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);  /* Membagi menjadi 3 kolom yang memiliki lebar yang sama */
+    gap: 20px;  /* Jarak antara elemen */
+    margin-top: 20px;
+  }
+
+  .room-grid td {
+    padding: 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+
+  .room-grid img {
+    width: 100%;        /* Gambar akan mengisi lebar ruang yang tersedia */
+    height: 200px;      /* Menetapkan tinggi gambar */
+    object-fit: cover;  /* Menyesuaikan gambar dengan menjaga aspek rasio dan tidak merusak gambar */
+  }
+      .footer {
+        text-align: center;
+        margin-top: 20px;
+        font-style: italic;
+        color: #6b9e1f;
+      }
+      .shift-right {
+        margin-left: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <img
+        alt="Logo Rumah Sakit Sehat Sejahtera"
+        height="50"
+        width="200"
+        src="{% static 'images/logo.jpg' %}"
+      />
+    </div>
+    <div class="nav">
+      <a href="{% url 'home' %}"> PROFIL </a>
+      <a href="{% url 'poliklinik' %}"> POLIKLINIK </a>
+      <a href="{% url 'fasilitas' %}"> FASILITAS </a>
+      <a href="{% url 'lokasi' %}"> LOKASI </a>
+      <a href="{% url 'kontak' %}"> KONTAK </a>
+    </div>
+
+    <div class="content">
+      {% block content %}
+      <!-- Konten spesifik untuk setiap halaman akan dimasukkan di sini -->
+      {% endblock %}
+    </div>
+
+    <div class="footer">
+      <p>&copy; 2024 Rumah Sakit Sehat Sejahtera. Semua hak dilindungi.</p>
+    </div>
+  </body>
+</html>

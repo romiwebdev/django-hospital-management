@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="content">
+    <h2>Lokasi Rumah Sakit Sehat Sejahtera</h2>
+
+    <h3>Alamat</h3>
+    <p>
+      Rumah Sakit Sehat Sejahtera <br>
+      Jl. Sehat No. 123, Jakarta, Indonesia <br>
+      Kode Pos: 12345
+    </p>
+
+    <h3>Petunjuk Arah</h3>
+    <p>
+      Rumah sakit kami terletak di pusat kota, dekat dengan stasiun kereta api dan terminal bus utama. Jika menggunakan transportasi umum, Anda bisa naik bus menuju halte "Sehat Sejahtera" yang terletak tepat di depan rumah sakit.
+    </p>
+
+    <h3>Map Lokasi</h3>
+    <div id="map"></div> <!-- Menambahkan map (misalnya dengan Google Maps) -->
+  </div>
+
+  <style>
+    #map {
+      height: 400px;
+      width: 100%;
+    }
+  </style>
+  <script>
+    function initMap() {
+      var location = {lat: -6.2000, lng: 106.8000}; // Ganti dengan koordinat lokasi rumah sakit
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 15,
+        center: location
+      });
+      var marker = new google.maps.Marker({
+        position: location,
+        map: map
+      });
+    }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap" async defer></script>
+{% endblock %}
